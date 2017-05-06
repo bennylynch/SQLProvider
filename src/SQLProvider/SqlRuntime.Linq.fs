@@ -415,10 +415,10 @@ module internal QueryImplementation =
                             FilterClause(filter,BaseTable(name.Name,entity))
                         | current ->
                             if isHaving then HavingClause(filter,current)
-                            else
+                            //else
 
                             // the following case can happen with multiple where clauses when only a single entity is selected
-                            if paramNames.First() = "" || source.TupleIndex.Count = 0 then FilterClause(filter,current)
+                            //if paramNames.First() = "" || source.TupleIndex.Count = 0 then FilterClause(filter,current)
                             else FilterClause(filter,current)
 
                     let ty = typedefof<SqlQueryable<_>>.MakeGenericType(meth.GetGenericArguments().[0])
